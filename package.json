@@ -10,7 +10,7 @@
         "lint:fix": "npx eslint . --fix",
         "format:ci": "prettier -c .",
         "lint:ci": "npx eslint --max-warnings 0 .",
-        "tests": "playwright test",
+        "tests": "playwright test --project=Chromium",
         "report": "playwright show-report",
         "prepare": "husky install"
     },
