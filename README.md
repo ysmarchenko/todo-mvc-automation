@@ -1,5 +1,11 @@
 <h1 align="center">TodoMVC Playwright Automation</h1>
 
+<div align="center">
+  <a href="https://github.com/ysmarchenko/todo-mvc-automation/actions/workflows/playwright.yml">
+    <img src="https://github.com/ysmarchenko/todo-mvc-automation/actions/workflows/playwright.yml/badge.svg" alt="Playwright Tests">
+  </a>
+</div>
+
 <p align="center">
   Automated E2E tests for <a href="https://demo.playwright.dev/todomvc/#/">TodoMVC</a> using Playwright + TypeScript with Page Object Model, Faker-generated tasks, cross-browser execution, and CI/CD-ready configuration.
 </p>
