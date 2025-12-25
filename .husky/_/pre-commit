@@ -1,16 +1,16 @@
-# #!/bin/sh
+#!/bin/sh
 
-# echo "🔍 Running lint and prettier checks..."
+echo "🔍 Running lint and prettier checks..."
 
-# npm run format:ci
-# FORMAT_EXIT_CODE=$?
+npm run format:ci
+FORMAT_EXIT_CODE=$?
 
-# npm run lint:ci
-# LINT_EXIT_CODE=$?
+npm run lint:ci
+LINT_EXIT_CODE=$?
 
-# if [ "$FORMAT_EXIT_CODE" -ne 0 ] || [ "$LINT_EXIT_CODE" -ne 0 ]; then
-#   echo "❌ Commit aborted due to lint/prettier errors."
-#   exit 1
-# fi
+if [ "$FORMAT_EXIT_CODE" -ne 0 ] || [ "$LINT_EXIT_CODE" -ne 0 ]; then
+  echo "❌ Commit aborted due to lint/prettier errors."
+  exit 1
+fi
 
-# echo "✅ Lint and prettier passed. Proceeding with commit."
+echo "✅ Lint and prettier passed. Proceeding with commit."

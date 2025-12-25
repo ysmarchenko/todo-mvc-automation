@@ -1,39 +1,39 @@
 {
-    "name": "todo-mvc-automation",
-    "author": "Yevhenii Marchenko",
-    "version": "1.0.0",
-    "description": "End-to-end automation framework for the TodoMVC demo application using Playwright and TypeScript. Covers CRUD operations following the Page Object Model pattern with linting, formatting, and CI support.",
-    "main": "index.js",
-    "type": "commonjs",
-    "scripts": {
-        "format:fix": "prettier --write .",
-        "lint:fix": "npx eslint . --fix",
-        "format:ci": "prettier -c .",
-        "lint:ci": "npx eslint --max-warnings 0 .",
-        "tests": "playwright test --project=Chromium",
-        "report": "playwright show-report",
-        "prepare": "husky install"
-    },
-    "keywords": [
-        "playwright",
-        "typescript",
-        "e2e",
-        "automation",
-        "todomvc",
-        "testing"
-    ],
-    "license": "ISC",
-    "devDependencies": {
-        "@playwright/test": "^1.57.0",
-        "@types/node": "^25.0.3",
-        "@typescript-eslint/eslint-plugin": "^7.18.0",
-        "@typescript-eslint/parser": "^7.18.0",
-        "dotenv": "^17.2.3",
-        "eslint": "^8.57.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-playwright": "^1.8.3",
-        "husky": "^9.0.11",
-        "prettier": "^3.3.3",
-        "@faker-js/faker": "^10.1.0"
-    }
+	"name": "todo-mvc-automation",
+	"author": "Yevhenii Marchenko",
+	"version": "1.0.0",
+	"description": "End-to-end automation framework for the TodoMVC demo application using Playwright and TypeScript. Covers CRUD operations following the Page Object Model pattern with linting, formatting, and CI support.",
+	"main": "index.js",
+	"type": "commonjs",
+	"scripts": {
+		"format:fix": "prettier --write .",
+		"lint:fix": "npx eslint --fix",
+		"format:ci": "prettier -c .",
+		"lint:ci": "npx eslint --max-warnings 0",
+		"tests": "playwright test --project=Chromium",
+		"report": "playwright show-report",
+		"prepare": "husky install"
+	},
+	"keywords": [
+		"playwright",
+		"typescript",
+		"e2e",
+		"automation",
+		"todomvc",
+		"testing"
+	],
+	"license": "ISC",
+	"devDependencies": {
+		"@playwright/test": "^1.57.0",
+		"@types/node": "^25.0.3",
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
+		"@typescript-eslint/parser": "^7.18.0",
+		"dotenv": "^17.2.3",
+		"eslint": "^8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-playwright": "^1.8.3",
+		"husky": "^9.0.11",
+		"prettier": "^3.3.3",
+		"@faker-js/faker": "^10.1.0"
+	}
 }
