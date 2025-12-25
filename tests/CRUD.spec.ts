@@ -1,18 +1,49 @@
 import { test, expect } from '@playwright/test';
+import { TodoPage } from '@pages/TodoPage';
+import { faker } from '@faker-js/faker';
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+test.describe('TodoMVC CRUD Tests', () => {
+    let todoPage: TodoPage;
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
+    test.beforeEach(async ({ page }) => {
+        todoPage = new TodoPage(page);
+        await todoPage.goto();
+    });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
+    test('User should be able to create a new todo item', async () => {
+        const taskName = 'TEST ' + faker.lorem.words(2);
 
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
+        await todoPage.addTodo(taskName);
+        await expect(todoPage.getTodoItem(taskName)).toBeVisible();
+    });
 
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+    test('User should be able to see all created todo items', async () => {
+        const taskNameFirst = 'TEST ' + faker.lorem.words(2);
+        const taskNameSecond = 'TEST ' + faker.lorem.words(2);
+
+        await todoPage.addTodo(taskNameFirst);
+        await todoPage.addTodo(taskNameSecond);
+
+        await expect(todoPage.getTodoItem(taskNameFirst)).toBeVisible();
+        await expect(todoPage.getTodoItem(taskNameSecond)).toBeVisible();
+    });
+
+    test('User should be able to update an existing todo item', async () => {
+        const taskNameFirst = 'TEST ' + faker.lorem.words(2);
+        const taskNameSecond = 'TEST ' + faker.lorem.words(2);
+
+        await todoPage.addTodo(taskNameFirst);
+        await todoPage.editTodo(taskNameFirst, taskNameSecond);
+
+        await expect(todoPage.getTodoItem(taskNameSecond)).toBeVisible();
+    });
+
+    test('User should be able to delete a todo item', async () => {
+        const taskName = 'TEST ' + faker.lorem.words(2);
+
+        await todoPage.addTodo(taskName);
+        await todoPage.deleteTodo(taskName);
+
+        await expect(todoPage.getTodoItem(taskName)).toHaveCount(0);
+    });
 });
