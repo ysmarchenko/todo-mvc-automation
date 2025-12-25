@@ -1,4 +1,4 @@
-import { Locator, expect } from '@playwright/test';
+import { Locator } from '@playwright/test';
 import { PageHolder } from '@pages/PageHolder';
 
 export default class TodoPage extends PageHolder {
@@ -12,15 +12,9 @@ export default class TodoPage extends PageHolder {
     readonly editInput = (name: string): Locator => this.todoItem(name).locator('.edit');
     readonly deleteButton = (name: string): Locator => this.todoItem(name).locator('.destroy');
 
-    /* Navigation
-    -----------------------------------------------------------*/
-    async goto(): Promise<void> {
-        await this.navigateTo('/');
-    }
-
     /* CRUD Actions
     -----------------------------------------------------------*/
-    async addTodo(todoText: string): Promise<void> {
+    async addNewTodo(todoText: string): Promise<void> {
         await this.newTodoInput.fill(todoText);
         await this.newTodoInput.press('Enter');
     }
