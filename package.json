@@ -6,11 +6,12 @@
     "main": "index.js",
     "type": "commonjs",
     "scripts": {
+        "format:fix": "prettier --write .",
+        "lint:fix": "npx eslint . --fix",
+        "format:ci": "prettier -c .",
+        "lint:ci": "npx eslint --max-warnings 0 .",
         "tests": "playwright test",
         "report": "playwright show-report",
-        "lint": "eslint . --ext .ts",
-        "lint:fix": "eslint . --ext .ts --fix",
-        "format": "prettier --write .",
         "prepare": "husky install"
     },
     "keywords": [
